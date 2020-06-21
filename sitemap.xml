@@ -3,11 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://pigeon1990.github.io/categories/</loc>
+    <loc>https://pigeon1990.github.io/</loc>
+    <lastmod>2020-06-18T19:23:04+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://pigeon1990.github.io/</loc>
+    <loc>https://pigeon1990.github.io/posts/</loc>
+    <lastmod>2020-06-18T19:23:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pigeon1990.github.io/posts/terminal-based-golang-develop-environment/</loc>
+    <lastmod>2020-06-18T19:23:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pigeon1990.github.io/posts/vimscript/</loc>
+    <lastmod>2020-06-17T15:52:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://pigeon1990.github.io/categories/</loc>
   </url>
   
   <url>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>基于Terminal的Go开发环境 :: P1990</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="引子 终端模拟器 alacritty 终端复用器 tmux oh my zsh vim vim-go vim plugs 文件浏览器 nerdtree 状态栏 vim-airline supertab 文件内容搜索 ack 文件搜索 fzf 代码格式化 vim-clang-format 错误检查ale git 相关 ⚡⚡⚡ vim-easymotion " />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://pigeon1990.github.io/posts/terminal-based-golang-develop-environment/" />
+
+
+
+
+<link rel="stylesheet" href="https://pigeon1990.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://pigeon1990.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://pigeon1990.github.io/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://pigeon1990.github.io/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="基于Terminal的Go开发环境 :: P1990">
+<meta property="og:description" content="引子 终端模拟器 alacritty 终端复用器 tmux oh my zsh vim vim-go vim plugs 文件浏览器 nerdtree 状态栏 vim-airline supertab 文件内容搜索 ack 文件搜索 fzf 代码格式化 vim-clang-format 错误检查ale git 相关 ⚡⚡⚡ vim-easymotion " />
+<meta property="og:url" content="https://pigeon1990.github.io/posts/terminal-based-golang-develop-environment/" />
+<meta property="og:site_name" content="基于Terminal的Go开发环境" />
+
+  
+    <meta property="og:image" content="https://pigeon1990.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-06-18 19:23:04 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    P1990
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://pigeon1990.github.io/posts/terminal-based-golang-develop-environment/">基于Terminal的Go开发环境</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2020-06-18 
+      </span>
+    
+    
+  </div>
+
+  
+
+  
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="引子">引子<a href="#引子" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="终端模拟器-alacritty">终端模拟器 alacritty<a href="#终端模拟器-alacritty" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="终端复用器-tmux">终端复用器 tmux<a href="#终端复用器-tmux" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="oh-my-zsh">oh my zsh<a href="#oh-my-zsh" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="vim">vim<a href="#vim" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="vim-go">vim-go<a href="#vim-go" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="vim-plugs">vim plugs<a href="#vim-plugs" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="文件浏览器-nerdtree">文件浏览器 nerdtree<a href="#文件浏览器-nerdtree" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="状态栏-vim-airline">状态栏 vim-airline<a href="#状态栏-vim-airline" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="supertab">supertab<a href="#supertab" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="文件内容搜索-ack">文件内容搜索 ack<a href="#文件内容搜索-ack" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="文件搜索-fzf">文件搜索 fzf<a href="#文件搜索-fzf" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="代码格式化-vim-clang-format">代码格式化 vim-clang-format<a href="#代码格式化-vim-clang-format" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="错误检查ale">错误检查ale<a href="#错误检查ale" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="git-相关">git 相关<a href="#git-相关" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="-vim-easymotion">⚡⚡⚡ vim-easymotion<a href="#-vim-easymotion" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://pigeon1990.github.io/posts/vimscript/">
+                <span class="button__text">Vimscript 深潜</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://pigeon1990.github.io/assets/main.js"></script>
+<script src="https://pigeon1990.github.io/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

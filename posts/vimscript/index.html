@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Vimscript 深潜 :: P1990</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Preface Acknowledgements Prerequisites Echoing Messages Setting Options Basic Mapping Modal Mapping Strict Mapping Leaders Editing Your Vimrc Abbreviations More Mappings Training Your Fingers Buffer-Local Options and Mappings Autocommands Buffer-Local Abbreviations Autocommand Groups Operator-Pending Mappings More Operator-Pending Mappings Status Lines Responsible Coding Variables Variable Scoping Conditionals Comparisons Functions Function Arguments Numbers Strings String Functions Execute Normal Execute Normal! Basic Regular Expressions Case Study: Grep Operator, Part One Case Study: Grep Operator, Part Two Case Study: Grep Operator, Part Three Lists Looping Dictionaries Toggling Functional Programming Paths Creating a Full Plugin Plugin Layout in the Dark Ages A New Hope: Plugin Layout with Pathogen Detecting Filetypes Basic Syntax Highlighting Advanced Syntax Highlighting Even More Advanced Syntax Highlighting Basic Folding Advanced Folding Section Movement Theory Potion Section Movement External Commands Autoloading Documentation Distribution What Now?" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://pigeon1990.github.io/posts/vimscript/" />
+
+
+
+
+<link rel="stylesheet" href="https://pigeon1990.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://pigeon1990.github.io/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://pigeon1990.github.io/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://pigeon1990.github.io/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  <meta name="twitter:site" content="" />
+
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Vimscript 深潜 :: P1990">
+<meta property="og:description" content="Preface Acknowledgements Prerequisites Echoing Messages Setting Options Basic Mapping Modal Mapping Strict Mapping Leaders Editing Your Vimrc Abbreviations More Mappings Training Your Fingers Buffer-Local Options and Mappings Autocommands Buffer-Local Abbreviations Autocommand Groups Operator-Pending Mappings More Operator-Pending Mappings Status Lines Responsible Coding Variables Variable Scoping Conditionals Comparisons Functions Function Arguments Numbers Strings String Functions Execute Normal Execute Normal! Basic Regular Expressions Case Study: Grep Operator, Part One Case Study: Grep Operator, Part Two Case Study: Grep Operator, Part Three Lists Looping Dictionaries Toggling Functional Programming Paths Creating a Full Plugin Plugin Layout in the Dark Ages A New Hope: Plugin Layout with Pathogen Detecting Filetypes Basic Syntax Highlighting Advanced Syntax Highlighting Even More Advanced Syntax Highlighting Basic Folding Advanced Folding Section Movement Theory Potion Section Movement External Commands Autoloading Documentation Distribution What Now?" />
+<meta property="og:url" content="https://pigeon1990.github.io/posts/vimscript/" />
+<meta property="og:site_name" content="Vimscript 深潜" />
+
+  
+    <meta property="og:image" content="https://pigeon1990.github.io/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-06-17 15:52:21 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    P1990
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://pigeon1990.github.io/posts/vimscript/">Vimscript 深潜</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2020-06-17 
+      </span>
+    
+    
+  </div>
+
+  
+
+  
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="preface">Preface<a href="#preface" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="acknowledgements">Acknowledgements<a href="#acknowledgements" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="prerequisites">Prerequisites<a href="#prerequisites" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="echoing-messages">Echoing Messages<a href="#echoing-messages" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="setting-options">Setting Options<a href="#setting-options" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="basic-mapping">Basic Mapping<a href="#basic-mapping" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="modal-mapping">Modal Mapping<a href="#modal-mapping" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="strict-mapping">Strict Mapping<a href="#strict-mapping" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="leaders">Leaders<a href="#leaders" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="editing-your-vimrc">Editing Your Vimrc<a href="#editing-your-vimrc" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="abbreviations">Abbreviations<a href="#abbreviations" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="more-mappings">More Mappings<a href="#more-mappings" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="training-your-fingers">Training Your Fingers<a href="#training-your-fingers" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="buffer-local-options-and-mappings">Buffer-Local Options and Mappings<a href="#buffer-local-options-and-mappings" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="autocommands">Autocommands<a href="#autocommands" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="buffer-local-abbreviations">Buffer-Local Abbreviations<a href="#buffer-local-abbreviations" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="autocommand-groups">Autocommand Groups<a href="#autocommand-groups" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="operator-pending-mappings">Operator-Pending Mappings<a href="#operator-pending-mappings" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="more-operator-pending-mappings">More Operator-Pending Mappings<a href="#more-operator-pending-mappings" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="status-lines">Status Lines<a href="#status-lines" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="responsible-coding">Responsible Coding<a href="#responsible-coding" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="variables">Variables<a href="#variables" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="variable-scoping">Variable Scoping<a href="#variable-scoping" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="conditionals">Conditionals<a href="#conditionals" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="comparisons">Comparisons<a href="#comparisons" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="functions">Functions<a href="#functions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="function-arguments">Function Arguments<a href="#function-arguments" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="numbers">Numbers<a href="#numbers" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="strings">Strings<a href="#strings" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="string-functions">String Functions<a href="#string-functions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="execute">Execute<a href="#execute" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="normal">Normal<a href="#normal" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="execute-normal">Execute Normal!<a href="#execute-normal" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="basic-regular-expressions">Basic Regular Expressions<a href="#basic-regular-expressions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="case-study-grep-operator-part-one">Case Study: Grep Operator, Part One<a href="#case-study-grep-operator-part-one" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="case-study-grep-operator-part-two">Case Study: Grep Operator, Part Two<a href="#case-study-grep-operator-part-two" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="case-study-grep-operator-part-three">Case Study: Grep Operator, Part Three<a href="#case-study-grep-operator-part-three" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="lists">Lists<a href="#lists" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="looping">Looping<a href="#looping" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="dictionaries">Dictionaries<a href="#dictionaries" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="toggling">Toggling<a href="#toggling" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="functional-programming">Functional Programming<a href="#functional-programming" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="paths">Paths<a href="#paths" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="creating-a-full-plugin">Creating a Full Plugin<a href="#creating-a-full-plugin" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="plugin-layout-in-the-dark-ages">Plugin Layout in the Dark Ages<a href="#plugin-layout-in-the-dark-ages" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="a-new-hope-plugin-layout-with-pathogen">A New Hope: Plugin Layout with Pathogen<a href="#a-new-hope-plugin-layout-with-pathogen" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="detecting-filetypes">Detecting Filetypes<a href="#detecting-filetypes" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="basic-syntax-highlighting">Basic Syntax Highlighting<a href="#basic-syntax-highlighting" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="advanced-syntax-highlighting">Advanced Syntax Highlighting<a href="#advanced-syntax-highlighting" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="even-more-advanced-syntax-highlighting">Even More Advanced Syntax Highlighting<a href="#even-more-advanced-syntax-highlighting" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="basic-folding">Basic Folding<a href="#basic-folding" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="advanced-folding">Advanced Folding<a href="#advanced-folding" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="section-movement-theory">Section Movement Theory<a href="#section-movement-theory" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="potion-section-movement">Potion Section Movement<a href="#potion-section-movement" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="external-commands">External Commands<a href="#external-commands" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="autoloading">Autoloading<a href="#autoloading" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="documentation">Documentation<a href="#documentation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="distribution">Distribution<a href="#distribution" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="what-now">What Now?<a href="#what-now" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="https://pigeon1990.github.io/posts/terminal-based-golang-develop-environment/">
+                <span class="button__icon">←</span>
+                <span class="button__text">基于Terminal的Go开发环境</span>
+            </a>
+        </span>
+        
+        
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://pigeon1990.github.io/assets/main.js"></script>
+<script src="https://pigeon1990.github.io/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
