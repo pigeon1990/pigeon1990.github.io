@@ -1,4 +1,4 @@
-baseurl = "https://pigeon1990.github.io"
+baseurl = "https://pigeon1990.github.io/"
 languageCode = "en-us"
 theme = "terminal"
 paginate = 5
