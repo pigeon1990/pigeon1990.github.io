@@ -1,6 +1,7 @@
 ---
 title: "Vimscript 深潜"
 date: 2020-06-17T15:52:21+08:00
+draft: true
 ---
 
 
@@ -63,4 +64,5 @@ date: 2020-06-17T15:52:21+08:00
 ## Documentation
 ## Distribution
 ## What Now?
+
 
