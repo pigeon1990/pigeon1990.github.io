@@ -9,9 +9,9 @@ toc: true
 ## 终端复用器 tmux 
 ## oh my zsh
 ## vim
-## vim-go
-## vim 插件
 ### 管理插件的插件vim plug
+## vim-go
+## 其它vim插件
 ### 文件浏览器 nerdtree
 ### 状态栏 vim-airline
 ### supertab
