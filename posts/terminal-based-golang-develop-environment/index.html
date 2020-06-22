@@ -6,7 +6,7 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="引子 终端模拟器 alacritty 终端复用器 tmux oh my zsh vim vim-go vim plugs 文件浏览器 nerdtree 状态栏 vim-airline supertab 文件内容搜索 ack 文件搜索 fzf 代码格式化 vim-clang-format 错误检查ale git 相关 ⚡⚡⚡ vim-easymotion " />
+<meta name="description" content="引子 终端模拟器 alacritty 终端复用器 tmux oh my zsh vim vim-go vim 插件 管理插件的插件vim plug 文件浏览器 nerdtree 状态栏 vim-airline supertab 文件内容搜索 ack 文件搜索 fzf 代码格式化 vim-clang-format 错误检查ale git 相关 在vim中更快的移动vim-easymotion ⚡⚡⚡ 其它 在浏览器中的类似vim-easymotion插件vimium 数据库客户端pgcli mycli HTTP调试工具curl httpie GRPC调试工具gcurl 终端文件浏览器ranger " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://pigeon1990.github.io/posts/terminal-based-golang-develop-environment/" />
@@ -39,7 +39,7 @@
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="基于Terminal的Go开发环境 :: P1990">
-<meta property="og:description" content="引子 终端模拟器 alacritty 终端复用器 tmux oh my zsh vim vim-go vim plugs 文件浏览器 nerdtree 状态栏 vim-airline supertab 文件内容搜索 ack 文件搜索 fzf 代码格式化 vim-clang-format 错误检查ale git 相关 ⚡⚡⚡ vim-easymotion " />
+<meta property="og:description" content="引子 终端模拟器 alacritty 终端复用器 tmux oh my zsh vim vim-go vim 插件 管理插件的插件vim plug 文件浏览器 nerdtree 状态栏 vim-airline supertab 文件内容搜索 ack 文件搜索 fzf 代码格式化 vim-clang-format 错误检查ale git 相关 在vim中更快的移动vim-easymotion ⚡⚡⚡ 其它 在浏览器中的类似vim-easymotion插件vimium 数据库客户端pgcli mycli HTTP调试工具curl httpie GRPC调试工具gcurl 终端文件浏览器ranger " />
 <meta property="og:url" content="https://pigeon1990.github.io/posts/terminal-based-golang-develop-environment/" />
 <meta property="og:site_name" content="基于Terminal的Go开发环境" />
 
@@ -130,6 +130,47 @@
   
 
   
+    <div class="table-of-contents">
+      <h2>
+        
+          Table of Contents
+        
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#引子">引子</a></li>
+    <li><a href="#终端模拟器-alacritty">终端模拟器 alacritty</a></li>
+    <li><a href="#终端复用器-tmux">终端复用器 tmux</a></li>
+    <li><a href="#oh-my-zsh">oh my zsh</a></li>
+    <li><a href="#vim">vim</a></li>
+    <li><a href="#vim-go">vim-go</a></li>
+    <li><a href="#vim-插件">vim 插件</a>
+      <ul>
+        <li><a href="#管理插件的插件vim-plug">管理插件的插件vim plug</a></li>
+        <li><a href="#文件浏览器-nerdtree">文件浏览器 nerdtree</a></li>
+        <li><a href="#状态栏-vim-airline">状态栏 vim-airline</a></li>
+        <li><a href="#supertab">supertab</a></li>
+        <li><a href="#文件内容搜索-ack">文件内容搜索 ack</a></li>
+        <li><a href="#文件搜索-fzf">文件搜索 fzf</a></li>
+        <li><a href="#代码格式化-vim-clang-format">代码格式化 vim-clang-format</a></li>
+        <li><a href="#错误检查ale">错误检查ale</a></li>
+        <li><a href="#git-相关">git 相关</a></li>
+        <li><a href="#在vim中更快的移动vim-easymotion-">在vim中更快的移动vim-easymotion ⚡⚡⚡</a></li>
+      </ul>
+    </li>
+    <li><a href="#其它">其它</a>
+      <ul>
+        <li><a href="#在浏览器中的类似vim-easymotion插件vimium">在浏览器中的类似vim-easymotion插件vimium</a></li>
+        <li><a href="#数据库客户端pgcli-mycli">数据库客户端pgcli mycli</a></li>
+        <li><a href="#http调试工具curl-httpie">HTTP调试工具curl httpie</a></li>
+        <li><a href="#grpc调试工具gcurl">GRPC调试工具gcurl</a></li>
+        <li><a href="#终端文件浏览器ranger">终端文件浏览器ranger</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  
 
   <div class="post-content"><div>
         <h2 id="引子">引子<a href="#引子" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -138,7 +179,8 @@
 <h2 id="oh-my-zsh">oh my zsh<a href="#oh-my-zsh" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h2 id="vim">vim<a href="#vim" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h2 id="vim-go">vim-go<a href="#vim-go" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<h2 id="vim-plugs">vim plugs<a href="#vim-plugs" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="vim-插件">vim 插件<a href="#vim-插件" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="管理插件的插件vim-plug">管理插件的插件vim plug<a href="#管理插件的插件vim-plug" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h3 id="文件浏览器-nerdtree">文件浏览器 nerdtree<a href="#文件浏览器-nerdtree" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h3 id="状态栏-vim-airline">状态栏 vim-airline<a href="#状态栏-vim-airline" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h3 id="supertab">supertab<a href="#supertab" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
@@ -147,7 +189,13 @@
 <h3 id="代码格式化-vim-clang-format">代码格式化 vim-clang-format<a href="#代码格式化-vim-clang-format" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h3 id="错误检查ale">错误检查ale<a href="#错误检查ale" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h3 id="git-相关">git 相关<a href="#git-相关" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<h3 id="-vim-easymotion">⚡⚡⚡ vim-easymotion<a href="#-vim-easymotion" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="在vim中更快的移动vim-easymotion-">在vim中更快的移动vim-easymotion ⚡⚡⚡<a href="#在vim中更快的移动vim-easymotion-" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h2 id="其它">其它<a href="#其它" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="在浏览器中的类似vim-easymotion插件vimium">在浏览器中的类似vim-easymotion插件vimium<a href="#在浏览器中的类似vim-easymotion插件vimium" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="数据库客户端pgcli-mycli">数据库客户端pgcli mycli<a href="#数据库客户端pgcli-mycli" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="http调试工具curl-httpie">HTTP调试工具curl httpie<a href="#http调试工具curl-httpie" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="grpc调试工具gcurl">GRPC调试工具gcurl<a href="#grpc调试工具gcurl" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="终端文件浏览器ranger">终端文件浏览器ranger<a href="#终端文件浏览器ranger" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 
       </div></div>
 
